@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<h1>hello world</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rem numquam placeat animi quibusdam est
+    voluptatem sunt, illo eum? Consequuntur, soluta eligendi impedit saepe natus adipisci culpa quam at vitae!</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    {% for track in tracks %}
+    <tr>
+        <td>{{track.id}}</td>
+        <td>{{track.name}}</td>
+        <td><a href="{% url 'updatetrack' track.id%}">Update</a>
+            <a href="{% url 'deletetrack' track.id%}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+<!-- <script src="{% static 'js/main.js'%}"></script> -->
+{% endblock %}

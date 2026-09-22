@@ -1,0 +1,16 @@
+pip install virtualenv
+virtualenv .venv
+.venvi\Scripts\activate
+pip install django
+django-admin startproject myproject
+cd myproject
+python manage.py runserver
+python manage.py startapp 
+python manage.py startapp myuser
+
+day3
+pip install psycopg2
+python manage.py makemigrations
+
+pip install pillow
+python manage.py createsuperuser

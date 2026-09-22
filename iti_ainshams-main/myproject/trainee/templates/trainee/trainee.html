@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<h1>Trainee Page</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore rem numquam placeat animi quibusdam est
+    voluptatem sunt, illo eum? Consequuntur, soluta eligendi impedit saepe natus adipisci culpa quam at vitae!</p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    {% for tr in trainee %}
+    <tr>
+        <td>{{tr.id}}</td>
+        <td>{{tr.name}}</td>
+        <td>{{tr.email}}</td>
+        <td>
+            {% if tr.image%}
+            <img style="width:300px" src="{{tr.image.url}}" alt="{{tr.name}}">
+            {% else %}
+            <p>No image</p>
+            {%endif%}
+        </td>
+        <td>{% if tr.status %}
+            Active
+            {% else %}
+            Inactive
+            {% endif %}
+        </td>
+
+
+        <td><a href="{% url 'updatetrainee' tr.id%}">Update</a>
+            <a href="{% url 'deletetrainee' tr.id%}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}
